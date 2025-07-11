@@ -113,7 +113,9 @@ class _HomepageState extends State<Homepage> {
                             boxShadow: [
                               BoxShadow(
                                 blurStyle: BlurStyle.normal,
-                                color: Colors.grey.shade900
+                                color: Colors.grey.shade900,
+                                spreadRadius: 20,
+                                blurRadius: 20
                               )
                             ]
                           ),
