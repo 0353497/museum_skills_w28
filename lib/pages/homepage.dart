@@ -57,6 +57,24 @@ class _HomepageState extends State<Homepage> {
                         ),
                       ),
                       Positioned(
+                      bottom: 0,
+                      width: MediaQuery.of(context).size.width,
+                       child: Container(
+                        height: 20,
+                        decoration: BoxDecoration(
+                          color: Colors.grey.shade900,
+                          boxShadow: [
+                              BoxShadow(
+                                blurStyle: BlurStyle.normal,
+                                color: Colors.grey.shade900,
+                                spreadRadius: 20,
+                                blurRadius: 20
+                              )
+                          ]
+                        ),
+                       ),
+                     ),
+                     Positioned(
                         bottom: 10,
                         left: 60,
                         child: Text("Experience Art",
@@ -66,8 +84,7 @@ class _HomepageState extends State<Homepage> {
                           fontFamily: "Optima"
                         ),
                         ),
-                      ),
-                     
+                      )
                     ],
                   ),
                   Text(
