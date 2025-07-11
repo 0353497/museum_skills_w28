@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:museum_skills_w28/pages/exhibit.dart';
 
 class ArtistsPage extends StatefulWidget {
   const ArtistsPage({super.key});
@@ -244,14 +245,14 @@ class HorizontalArtistView extends StatelessWidget {
           for (int i = 0; i < images.length; i++)
             Padding(
               padding: const EdgeInsets.only(right: 20),
-              child: _buildImageContainer(images[i], i),
+              child: _buildImageContainer(context, images[i], i),
             ),
         ],
       ),
     );
   }
   
-  Widget _buildImageContainer(String imagePath, int index) {
+  Widget _buildImageContainer(BuildContext context, String imagePath, int index) {
     BorderRadius borderRadius;
     
     if (index == 0) {
@@ -262,16 +263,21 @@ class HorizontalArtistView extends StatelessWidget {
       borderRadius = defaultBorderRadius;
     }
     
-    return Container(
-      clipBehavior: borderRadius != BorderRadius.zero ? Clip.hardEdge : Clip.none,
-      decoration: BoxDecoration(
-        borderRadius: borderRadius,
-      ),
-      width: 130,
-      height: 200,
-      child: Image.asset(
-        imagePath,
-        fit: BoxFit.cover,
+    return InkWell(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (_) =>ExhibitPage()));
+      },
+      child: Container(
+        clipBehavior: borderRadius != BorderRadius.zero ? Clip.hardEdge : Clip.none,
+        decoration: BoxDecoration(
+          borderRadius: borderRadius,
+        ),
+        width: 130,
+        height: 200,
+        child: Image.asset(
+          imagePath,
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }
