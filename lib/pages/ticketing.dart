@@ -9,7 +9,7 @@ class TicketingPage extends StatefulWidget {
 }
 
 class _TicketingPageState extends State<TicketingPage> {
-  DateTime selectedDate = DateTime.now();
+  DateTime selectedDate = DateTime(2024, 9);
   int amountGeneralAdmisson = 1;
   int secondInput = 0;
   @override
@@ -49,8 +49,10 @@ class _TicketingPageState extends State<TicketingPage> {
                   Stack(
                     children: [
                       SfDateRangePicker(
+                        selectionRadius: 20,
+                        selectionColor: Colors.amber,
                         initialSelectedDate: DateTime(2024, 9),
-                        minDate: DateTime.now(),
+                        minDate: DateTime(2024, 9, 13),
                         initialDisplayDate: selectedDate,
                         backgroundColor: Colors.grey.shade900,
                         todayHighlightColor: Colors.amber,
@@ -62,7 +64,7 @@ class _TicketingPageState extends State<TicketingPage> {
                         ),
                         selectionShape: DateRangePickerSelectionShape.circle,
                         cellBuilder: (context, cellDetails) {
-                          if (cellDetails.date.weekday == 2 || cellDetails.date.isBefore(DateTime.now())) {
+                          if (cellDetails.date.weekday == 2 || cellDetails.date.isBefore(DateTime(2024, 9, 13))) {
                             return Text(cellDetails.date.day.toString(), style: TextStyle(color: Colors.grey, fontFamily: "Optima"), textAlign: TextAlign.center,);
                           } else {
                             return Text(cellDetails.date.day.toString(), textAlign: TextAlign.center, style: TextStyle(fontFamily: "Optima"),);
